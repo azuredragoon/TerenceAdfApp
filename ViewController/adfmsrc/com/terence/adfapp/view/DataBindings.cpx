@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.11.57" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.terence.adfapp.view" ClientType="Generic">
+  <pageMap>
+    <page path="/TpDemoPage.jsf" usageId="com_terence_adfapp_view_TpDemoPagePageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_terence_adfapp_view_TpDemoPagePageDef" path="com.terence.adfapp.view.pageDefs.TpDemoPagePageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="TerenceAdfAppModuleDataControl" Package="com.terence.adfapp.model.appmodules"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="TerenceAdfAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

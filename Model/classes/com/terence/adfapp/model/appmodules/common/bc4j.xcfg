@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.terence.adfapp.model.appmodules.TerenceAdfAppModule">
+      <AppModuleConfig name="TerenceAdfAppModuleLocal" jbo.project="com.terence.adfapp.model.Model" ApplicationName="com.terence.adfapp.model.appmodules.TerenceAdfAppModule" DeployPlatform="LOCAL">
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.terence.adfapp.model.appmodules.TerenceAdfAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/hr_connDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="TerenceAdfAppModuleShared" jbo.project="com.terence.adfapp.model.Model" ApplicationName="com.terence.adfapp.model.appmodules.TerenceAdfAppModule" DeployPlatform="LOCAL">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Database jbo.TypeMapEntries="OracleApps"/>
+         <Security AppModuleJndiName="com.terence.adfapp.model.appmodules.TerenceAdfAppModule"/>
+         <Custom ns0:JDBCDataSource="java:comp/env/jdbc/hr_connDS" xmlns:ns0="http://xmlns.oracle.com/bc4j/configuration"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

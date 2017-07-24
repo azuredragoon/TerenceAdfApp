@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="TpDemoPage.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+                <f:facet name="header">
+                    <af:panelGroupLayout id="pgl1">
+                        <af:spacer width="10" height="10" id="s1"/>
+                        <af:outputText value="Terence Adf App" id="ot1"/>
+                    </af:panelGroupLayout>
+                </f:facet>
+                <f:facet name="status"/>
+                <f:facet name="appNav"/>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:masonryLayout id="ml1">
+                        <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle">
+                            <af:panelFormLayout id="pfl1">
+                                <af:panelLabelAndMessage label="Name" id="plam1">
+                                    <af:panelGroupLayout id="pgl7" layout="horizontal">
+                                        <af:inputText value="#{bindings.FirstName.inputValue}"
+                                                      required="#{bindings.FirstName.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.FirstName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.FirstName.hints.precision}"
+                                                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it1">
+                                            <f:validator binding="#{bindings.FirstName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.LastName.inputValue}"
+                                                      required="#{bindings.LastName.hints.mandatory}" readOnly="true"
+                                                      columns="#{bindings.LastName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.LastName.hints.precision}"
+                                                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it2">
+                                            <f:validator binding="#{bindings.LastName.validator}"/>
+                                        </af:inputText>
+                                    </af:panelGroupLayout>
+                                </af:panelLabelAndMessage>
+                                <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                                              required="#{bindings.Email.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.Email.hints.displayWidth}"
+                                              maximumLength="#{bindings.Email.hints.precision}"
+                                              shortDesc="#{bindings.Email.hints.tooltip}" id="it3">
+                                    <f:validator binding="#{bindings.Email.validator}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                                              label="#{bindings.PhoneNumber.hints.label}"
+                                              required="#{bindings.PhoneNumber.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                              maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                              shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it4">
+                                    <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                                </af:inputText>
+                                <af:inputDate value="#{bindings.HireDate.inputValue}" readOnly="true"
+                                              label="#{bindings.HireDate.hints.label}"
+                                              required="#{bindings.HireDate.hints.mandatory}"
+                                              columns="#{bindings.HireDate.hints.displayWidth}"
+                                              shortDesc="#{bindings.HireDate.hints.tooltip}" id="id1">
+                                    <f:validator binding="#{bindings.HireDate.validator}"/>
+                                    <af:convertDateTime pattern="#{bindings.HireDate.format}"/>
+                                </af:inputDate>
+                                <af:inputText value="#{bindings.Salary.inputValue}"
+                                              label="#{bindings.Salary.hints.label}"
+                                              required="#{bindings.Salary.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.Salary.hints.displayWidth}"
+                                              maximumLength="#{bindings.Salary.hints.precision}"
+                                              shortDesc="#{bindings.Salary.hints.tooltip}" id="it5">
+                                    <f:validator binding="#{bindings.Salary.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Salary.format}"/>
+                                </af:inputText>
+                                <af:inputText value="#{bindings.CommissionPct.inputValue}"
+                                              label="#{bindings.CommissionPct.hints.label}"
+                                              required="#{bindings.CommissionPct.hints.mandatory}" readOnly="true"
+                                              columns="#{bindings.CommissionPct.hints.displayWidth}"
+                                              maximumLength="#{bindings.CommissionPct.hints.precision}"
+                                              shortDesc="#{bindings.CommissionPct.hints.tooltip}" id="it6">
+                                    <f:validator binding="#{bindings.CommissionPct.validator}"/>
+                                    <af:convertNumber groupingUsed="false" pattern="#{bindings.CommissionPct.format}"/>
+                                </af:inputText>
+                            </af:panelFormLayout>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="pgl3" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle"/>
+                        <af:panelGroupLayout id="pgl4" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle"/>
+                        <af:panelGroupLayout id="pgl5" layout="vertical" styleClass="AFMasonryTileSize2x1 tileStyle"/>
+                    </af:masonryLayout>
+                </f:facet>
+                <f:facet name="start">
+                    <af:listView value="#{bindings.EmployeesView1.collectionModel}" var="item"
+                                 emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                 fetchSize="#{bindings.EmployeesView1.rangeSize}" id="lv1"
+                                 selectionListener="#{bindings.EmployeesView1.treeModel.makeCurrent}"
+                                 selection="single">
+                        <af:listItem id="li1">
+                            <af:panelGridLayout id="pgl6">
+                                <af:gridRow marginTop="5px" height="auto" marginBottom="5px" id="gr1">
+                                    <af:gridCell marginStart="5px" width="50%" id="gc1">
+                                        <af:outputFormatted value="#{item.bindings.FirstName.inputValue}" id="of1"/>
+                                    </af:gridCell>
+                                    <af:gridCell marginStart="5px" width="50%" marginEnd="5px" id="gc2">
+                                        <af:outputFormatted value="#{item.bindings.LastName.inputValue}" id="of2"/>
+                                    </af:gridCell>
+                                </af:gridRow>
+                            </af:panelGridLayout>
+                        </af:listItem>
+                    </af:listView>
+                </f:facet>
+                <f:facet name="end"/>
+            </af:pageTemplate>
+        </af:form>
+    </af:document>
+</f:view>
